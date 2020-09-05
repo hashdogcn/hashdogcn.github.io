@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="HashDog blog">
-<meta name="description" content="温故而知新">
+<meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>HashDog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1599278348121">
+<link rel="shortcut icon" href="/favicon.ico?v=1599278601573">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -71,6 +71,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -81,6 +83,8 @@
             </li>
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -93,6 +97,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -104,6 +110,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -113,6 +121,16 @@
               
             </li>
           
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
           
           
             <li id="fa_search" class="nav-item">
@@ -159,7 +177,7 @@
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name"></p>
+    <p class="site-author-name">适用 Gemini,Pisces 布局,版权说明需配置</p>
     
   </div>
   <div class="sidebar-item side-item-stat right-motion">
@@ -172,13 +190,13 @@
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-count">0</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-count">0</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -186,8 +204,6 @@
   
     
   
-  
-
   
 
 
@@ -232,7 +248,7 @@
               <ul>
                 <li><span class="language" data-lan="site-name">网站名称：</span>HashDog</li>
                 <li><span class="language" data-lan="site-link">网站地址：</span><a href="https://hashdogcn.github.io" data-pjax-state="">https://hashdogcn.github.io</a></li>
-                <li><span class="language" data-lan="site-desc">网站描述：</span>温故而知新</li>
+                <li><span class="language" data-lan="site-desc">网站描述：</span></li>
                 <li><span class="language" data-lan="site-img">网站头像：</span>
                   <a href="https://hashdogcn.github.io/images/avatar.png">https://hashdogcn.github.io/images/avatar.png</a>
                 </li>
@@ -278,7 +294,7 @@
     appId: 'nyXmwotEceDl114r65piA6Ue-gzGzoHsz',
     appKey: 's9vpI6QpbdxVTJCnP3ukaEuT',
     avatar: '',
-    placeholder: '说点什么吧__',
+    placeholder: '这一刻的想法...',
     pageSize: '',
     lang: 'zh-cn',
     enableQQ: 'true' === 'false',
@@ -320,6 +336,32 @@
   <div id="landlord" style="left: 5px;bottom: px;"
     data-key="">
     <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    
+
+      <div class="message" style="opacity:0"></div>
+      <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+          <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off"
+            placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+          <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off"
+            placeholder="要和我聊什么呀？" />
+          <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+      </div>
+      <input name="live_talk" id="live_talk" value="1" type="hidden" />
+      <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input id="duType" value="douqilai" type="hidden">
+        
+      </div>
     
   </div>
 </div>
@@ -1008,6 +1050,25 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/mac-xi-tong-chang-yong-cao-zuo/"" data-c="
+          &lt;h3 id=&#34;命令行&#34;&gt;命令行&lt;/h3&gt;
+&lt;p&gt;1.删除目录下所有._开头文件&lt;br&gt;
+&lt;code&gt;find ./ -name &amp;quot;._*&amp;quot; -depth -exec rm {} \;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2.删除目录下所有.DS_Store文件&lt;br&gt;
+&lt;code&gt;find ./ -name &amp;quot;.DS_Store&amp;quot; -depth -exec rm {} \;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;其他操作&#34;&gt;其他操作&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;**修改访达默认排列方式 **&lt;br&gt;
+&lt;strong&gt;快捷键&lt;/strong&gt; &lt;code&gt;command+J&lt;/code&gt;&lt;br&gt;
+随便打开一个访达窗口，按下快捷键command+J弹出修改默认设置窗口&lt;br&gt;
+&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599278023055.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+修改分组方式和排列方式即可实现&lt;br&gt;
+😘 Enjoy~&lt;/li&gt;
+&lt;/ul&gt;
+">mac系统常用操作</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/more-app/"" data-c="
           &lt;p&gt;{&amp;quot;test&amp;quot;:&amp;quot;json&amp;quot;}&lt;/p&gt;
 ">More APP</a>
@@ -1028,24 +1089,6 @@
 &lt;h2 id=&#34;怎么联系&#34;&gt;怎么联系&lt;/h2&gt;
 &lt;p&gt;WeChat：bGxsbElsbElsSWxsSWxsbGw=&lt;/p&gt;
 ">关于</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/mac/"" data-c="
-          &lt;h3 id=&#34;命令行&#34;&gt;命令行&lt;/h3&gt;
-&lt;p&gt;1.删除目录下所有._开头文件&lt;br&gt;
-&lt;code&gt;find ./ -name &amp;quot;._*&amp;quot; -depth -exec rm {} \;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;2.删除目录下所有.DS_Store文件&lt;br&gt;
-&lt;code&gt;find ./ -name &amp;quot;.DS_Store&amp;quot; -depth -exec rm {} \;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;其他操作&#34;&gt;其他操作&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;修改访达默认排列方式 &lt;code&gt;command+J&lt;/code&gt;&lt;br&gt;
-随便打开一个访达窗口，按下快捷键command+J弹出修改默认设置窗口&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599278023055.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-修改分组方式和排列方式即可实现&lt;br&gt;
-😘 Enjoy~&lt;/li&gt;
-&lt;/ul&gt;
-">macOS系统常用操作</a>
       </div>
       
     </div>

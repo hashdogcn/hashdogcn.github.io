@@ -2,20 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hashdogcn.github.io</id>
     <title>HashDog</title>
-    <updated>2020-09-05T03:59:22.508Z</updated>
+    <updated>2020-09-05T04:03:25.622Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hashdogcn.github.io"/>
     <link rel="self" href="https://hashdogcn.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
     <logo>https://hashdogcn.github.io/images/avatar.png</logo>
     <icon>https://hashdogcn.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HashDog</rights>
     <entry>
-        <title type="html"><![CDATA[macOS系统常用操作]]></title>
-        <id>https://hashdogcn.github.io/post/mac/</id>
-        <link href="https://hashdogcn.github.io/post/mac/">
+        <title type="html"><![CDATA[mac系统常用操作]]></title>
+        <id>https://hashdogcn.github.io/post/mac-xi-tong-chang-yong-cao-zuo/</id>
+        <link href="https://hashdogcn.github.io/post/mac-xi-tong-chang-yong-cao-zuo/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
+        <updated>2020-09-05T04:01:34.000Z</updated>
         <content type="html"><![CDATA[<h3 id="命令行">命令行</h3>
 <p>1.删除目录下所有._开头文件<br>
 <code>find ./ -name &quot;._*&quot; -depth -exec rm {} \;</code></p>
@@ -23,7 +22,8 @@
 <code>find ./ -name &quot;.DS_Store&quot; -depth -exec rm {} \;</code></p>
 <h3 id="其他操作">其他操作</h3>
 <ul>
-<li>修改访达默认排列方式 <code>command+J</code><br>
+<li>**修改访达默认排列方式 **<br>
+<strong>快捷键</strong> <code>command+J</code><br>
 随便打开一个访达窗口，按下快捷键command+J弹出修改默认设置窗口<br>
 <img src="https://hashdogcn.github.io/post-images/1599278023055.png" alt="" loading="lazy"><br>
 修改分组方式和排列方式即可实现<br>
