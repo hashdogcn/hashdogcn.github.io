@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://hashdog.cn</id>
+    <id>https://hashdogcn.github.io</id>
     <title>HashDog</title>
-    <updated>2020-09-05T03:36:35.955Z</updated>
+    <updated>2020-09-05T03:37:10.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://hashdog.cn"/>
-    <link rel="self" href="https://hashdog.cn/atom.xml"/>
+    <link rel="alternate" href="https://hashdogcn.github.io"/>
+    <link rel="self" href="https://hashdogcn.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://hashdog.cn/images/avatar.png</logo>
-    <icon>https://hashdog.cn/favicon.ico</icon>
+    <logo>https://hashdogcn.github.io/images/avatar.png</logo>
+    <icon>https://hashdogcn.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HashDog</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://hashdog.cn/post/hello-gridea/</id>
-        <link href="https://hashdog.cn/post/hello-gridea/">
+        <id>https://hashdogcn.github.io/post/hello-gridea/</id>
+        <link href="https://hashdogcn.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
