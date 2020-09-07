@@ -2,13 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hashdogcn.github.io</id>
     <title>HashDog</title>
-    <updated>2020-09-07T02:06:57.585Z</updated>
+    <updated>2020-09-07T02:18:03.652Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hashdogcn.github.io"/>
     <link rel="self" href="https://hashdogcn.github.io/atom.xml"/>
     <logo>https://hashdogcn.github.io/images/avatar.png</logo>
     <icon>https://hashdogcn.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HashDog</rights>
+    <entry>
+        <title type="html"><![CDATA[学习路线]]></title>
+        <id>https://hashdogcn.github.io/post/xue-xi-lu-xian/</id>
+        <link href="https://hashdogcn.github.io/post/xue-xi-lu-xian/">
+        </link>
+        <updated>2020-09-07T02:17:15.000Z</updated>
+        <content type="html"><![CDATA[<p>Flutter学习路线</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GooglePlay上架应用的Facebook keyhash获取方法]]></title>
         <id>https://hashdogcn.github.io/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/</id>
@@ -38,8 +47,10 @@ debug.keystore：签名文件路径</p>
 <p>deployment_cert.der：下载的签名文件路径</p>
 </blockquote>
 <h2 id="福利">福利</h2>
-<p>顺带提供一个我自己开发的获取Facebook哈希值的小工具<a href="https://hashdogcn.github.io/post-images/BuildfbKey.zip">BuildfbKey.jar</a>，非常方便使用<br>
-<img src="https://hashdogcn.github.io/post-images/1599444223740.png" alt="" loading="lazy"></p>
+<p>顺带提供一个我自己开发的获取Facebook哈希值的小工具BuildfbKey，非常方便使用<br>
+<img src="https://hashdogcn.github.io/post-images/1599444223740.png" alt="" loading="lazy"><br>
+只需要把签名文件拖进path框然后输入alias和password点击生成即可，免去了在终端输入一长串命令的繁琐步骤。</p>
+<p>工具下载链接：<a href="https://hashdogcn.github.io/post-images/BuildfbKey.zip">BuildfbKey.jar</a></p>
 ]]></content>
     </entry>
     <entry>
