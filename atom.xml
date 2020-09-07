@@ -2,13 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hashdogcn.github.io</id>
     <title>HashDog</title>
-    <updated>2020-09-07T01:56:45.026Z</updated>
+    <updated>2020-09-07T02:06:57.585Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hashdogcn.github.io"/>
     <link rel="self" href="https://hashdogcn.github.io/atom.xml"/>
     <logo>https://hashdogcn.github.io/images/avatar.png</logo>
     <icon>https://hashdogcn.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HashDog</rights>
+    <entry>
+        <title type="html"><![CDATA[GooglePlay上架应用的Facebook keyhash获取方法]]></title>
+        <id>https://hashdogcn.github.io/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/</id>
+        <link href="https://hashdogcn.github.io/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/">
+        </link>
+        <updated>2020-09-07T02:01:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="下载googleplay签名证书">下载GooglePlay签名证书</h2>
+<p>在上架GooglePlay的时候谷歌会推荐加入谷歌签名计划，上架的应用会在谷歌后台重新签名打包，导致我们的本地密钥被覆盖的情况。很多小伙伴在做谷歌登录Facebook登录的时候密钥的哈希值在测试没问题上架就不行就是这个问题。</p>
+<p>首先在GooglePlay控制台下载谷歌签名的证书文件。<br>
+<img src="https://hashdogcn.github.io/post-images/1599444202224.png" alt="" loading="lazy"><br>
+下载的文件是这个样子的。<br>
+<img src="https://hashdogcn.github.io/post-images/1599444182972.png" alt="" loading="lazy"><br>
+这时有点疑虑了，怎么跟本地的签名文件不一样呢。是的，在谷歌控制台下载的证书文件不是我们本地签名的.keystore或.jks签名文件。<br>
+那么问题来了，这种.der证书文件能不能获取到哈希值呢，答案是可以的。</p>
+<h2 id="facebook-keyhash获取方法">Facebook keyhash获取方法</h2>
+<p>一般本地的签名文件我们使用这样的命令就可以获取哈希值（需要安装openssl）</p>
+<pre><code class="language-shell">keytool -exportcert -alias androiddebugkey -keystore debug.keystore | openssl sha1 -binary | openssl base64
+</code></pre>
+<blockquote>
+<p>androiddebugkey：签名文件的Alias<br>
+debug.keystore：签名文件路径</p>
+</blockquote>
+<p>GooglePlay下载的证书文件使用下面的命令获取哈希值（同样需要openssl）</p>
+<pre><code class="language-shell">openssl sha1 -binary deployment_cert.der | openssl base64
+</code></pre>
+<blockquote>
+<p>deployment_cert.der：下载的签名文件路径</p>
+</blockquote>
+<h2 id="福利">福利</h2>
+<p>顺带提供一个我自己开发的获取Facebook哈希值的小工具<a href="https://hashdogcn.github.io/post-images/BuildfbKey.zip">BuildfbKey.jar</a>，非常方便使用<br>
+<img src="https://hashdogcn.github.io/post-images/1599444223740.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[macOS配置adb]]></title>
         <id>https://hashdogcn.github.io/post/macos-pei-zhi-adb/</id>

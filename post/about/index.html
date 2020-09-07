@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>关于 | HashDog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1599443801433">
+<link rel="shortcut icon" href="/favicon.ico?v=1599444414649">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -202,7 +202,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-count">3</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1596,6 +1596,36 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/"" data-c="
+          &lt;h2 id=&#34;下载googleplay签名证书&#34;&gt;下载GooglePlay签名证书&lt;/h2&gt;
+&lt;p&gt;在上架GooglePlay的时候谷歌会推荐加入谷歌签名计划，上架的应用会在谷歌后台重新签名打包，导致我们的本地密钥被覆盖的情况。很多小伙伴在做谷歌登录Facebook登录的时候密钥的哈希值在测试没问题上架就不行就是这个问题。&lt;/p&gt;
+&lt;p&gt;首先在GooglePlay控制台下载谷歌签名的证书文件。&lt;br&gt;
+&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599444202224.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+下载的文件是这个样子的。&lt;br&gt;
+&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599444182972.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+这时有点疑虑了，怎么跟本地的签名文件不一样呢。是的，在谷歌控制台下载的证书文件不是我们本地签名的.keystore或.jks签名文件。&lt;br&gt;
+那么问题来了，这种.der证书文件能不能获取到哈希值呢，答案是可以的。&lt;/p&gt;
+&lt;h2 id=&#34;facebook-keyhash获取方法&#34;&gt;Facebook keyhash获取方法&lt;/h2&gt;
+&lt;p&gt;一般本地的签名文件我们使用这样的命令就可以获取哈希值（需要安装openssl）&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;keytool -exportcert -alias androiddebugkey -keystore debug.keystore | openssl sha1 -binary | openssl base64
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;androiddebugkey：签名文件的Alias&lt;br&gt;
+debug.keystore：签名文件路径&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;GooglePlay下载的证书文件使用下面的命令获取哈希值（同样需要openssl）&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;openssl sha1 -binary deployment_cert.der | openssl base64
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;deployment_cert.der：下载的签名文件路径&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;福利&#34;&gt;福利&lt;/h2&gt;
+&lt;p&gt;顺带提供一个我自己开发的获取Facebook哈希值的小工具&lt;a href=&#34;https://hashdogcn.github.io/post-images/BuildfbKey.zip&#34;&gt;BuildfbKey.jar&lt;/a&gt;，非常方便使用&lt;br&gt;
+&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599444223740.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+">GooglePlay上架应用的Facebook keyhash获取方法</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/macos-pei-zhi-adb/"" data-c="
