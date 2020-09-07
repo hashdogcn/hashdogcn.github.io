@@ -2,22 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hashdogcn.github.io</id>
     <title>HashDog</title>
-    <updated>2020-09-07T02:18:03.652Z</updated>
+    <updated>2020-09-07T02:19:31.376Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hashdogcn.github.io"/>
     <link rel="self" href="https://hashdogcn.github.io/atom.xml"/>
     <logo>https://hashdogcn.github.io/images/avatar.png</logo>
     <icon>https://hashdogcn.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HashDog</rights>
-    <entry>
-        <title type="html"><![CDATA[学习路线]]></title>
-        <id>https://hashdogcn.github.io/post/xue-xi-lu-xian/</id>
-        <link href="https://hashdogcn.github.io/post/xue-xi-lu-xian/">
-        </link>
-        <updated>2020-09-07T02:17:15.000Z</updated>
-        <content type="html"><![CDATA[<p>Flutter学习路线</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[GooglePlay上架应用的Facebook keyhash获取方法]]></title>
         <id>https://hashdogcn.github.io/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/</id>
