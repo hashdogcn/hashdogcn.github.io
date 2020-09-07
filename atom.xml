@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hashdogcn.github.io</id>
     <title>HashDog</title>
-    <updated>2020-09-07T02:30:11.060Z</updated>
+    <updated>2020-09-07T02:36:15.217Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hashdogcn.github.io"/>
     <link rel="self" href="https://hashdogcn.github.io/atom.xml"/>
@@ -43,11 +43,11 @@
 </ul>
 <h3 id="安装flutter-sdk">安装flutter sdk</h3>
 <p>解压上面下载的sdk到你的工作目录，我这里就放到了Users/xxx目录下<br>
-<img src="https://hashdog.cn/usr/uploads/2019/12/1471194762.png" alt="11.png" loading="lazy"><br>
+<img src="https://hashdogcn.github.io/post-images/1599445887060.png" alt="" loading="lazy"><br>
 然后把环境变量添加到base_profile里面，我们使用vi工具操作（我一般习惯性用vi，你们熟悉其他编辑器也可以使用的）</p>
 <pre><code class="language-shell">vi ~/.bash_profile 
 </code></pre>
-<p><img src="https://hashdog.cn/usr/uploads/2019/12/1401472842.png" alt="222.png" loading="lazy"><br>
+<p><img src="https://hashdogcn.github.io/post-images/1599445903622.png" alt="" loading="lazy"><br>
 添加刚刚解压的flutter sdk的目录到path</p>
 <pre><code class="language-shell">export PATH=$PATH:/Users/xxxx/flutter/bin
 </code></pre>
@@ -59,11 +59,11 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 <p>保存退出然后运行</p>
 <pre><code class="language-shell">source ~/.bash_profile 
 </code></pre>
-<p>这样环境变量就弄好了，如果重启失效可以参考 <a href="https://hashdog.cn/android/40.html" title="macOS配置adb">macOS配置adb</a> 最后特别提醒</p>
+<p>这样环境变量就弄好了，如果重启失效可以参考 <a href="https://hashdog.cn/post/macos-pei-zhi-adb/%22macOS%E9%85%8D%E7%BD%AEadb%22">macOS配置adb</a> 最后特别提醒</p>
 <p>终端运行flutter doctor检查flutter环境安装情况</p>
 <pre><code class="language-shell">flutter doctor
 </code></pre>
-<p><img src="https://hashdog.cn/usr/uploads/2019/12/2709347487.png" alt="333.png" loading="lazy"><br>
+<p><img src="https://hashdogcn.github.io/post-images/1599445960135.png" alt="" loading="lazy"><br>
 运行后如图有flutter版本号就是安装成功了，下方有列举了一些开发工具安装情况，打x的表示没有安装，打勾表示安装好了的，例如我这里Android Studio已经打勾了就安装好flutter插件了。</p>
 <h3 id="开发工具安装flutter插件">开发工具安装flutter插件</h3>
 <blockquote>
@@ -75,13 +75,13 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 <li>Dart：提供Dart语言的支持</li>
 </ol>
 <p>首先打开Android Studio，找到preferences --&gt; plugins --&gt; 搜索flutter，如图<br>
-<img src="https://hashdog.cn/usr/uploads/2019/12/2827301718.png" alt="444.png" loading="lazy"><br>
+<img src="https://hashdogcn.github.io/post-images/1599445971716.png" alt="" loading="lazy"><br>
 我这里已经安装好了，没有安装的直接点击install即可，一会会弹出同时安装Dart，点击yes就可以了</p>
 <h3 id="开发工具界面展示">开发工具界面展示</h3>
 <blockquote>
 <p>这里同样使用Android Studio</p>
 </blockquote>
-<p><img src="https://hashdog.cn/usr/uploads/2019/12/3015397113.png" alt="555.png" loading="lazy"><br>
+<p><img src="https://hashdogcn.github.io/post-images/1599445983847.png" alt="" loading="lazy"><br>
 这里我们可以看到即可以使用Android手机或者模拟器也可以使用iOS的手机或者模拟器，也就是说我们可以在两大移动平台可以预览我们的代码。</p>
 ]]></content>
     </entry>

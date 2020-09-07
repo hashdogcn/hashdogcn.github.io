@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>macOS下搭建Flutter开发环境 | HashDog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1599445787603">
+<link rel="shortcut icon" href="/favicon.ico?v=1599446171322">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -39,7 +39,7 @@
 
 
   <meta name="description" content="macOS下搭建Flutter开发环境" />
-  <meta name="keywords" content="学习路线" />
+  <meta name="keywords" content="Flutter,学习路线" />
 </head>
 
 <body>
@@ -201,13 +201,13 @@
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -522,6 +522,12 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
+      <a href="https://hashdogcn.github.io/tag/N0CQvW_iu/">
+        <span>Flutter</span>
+      </a>、
+      
+      
+      
       <a href="https://hashdogcn.github.io/tag/XWqx-1xXw/">
         <span>学习路线</span>
       </a>
@@ -561,11 +567,11 @@
 </ul>
 <h3 id="安装flutter-sdk">安装flutter sdk</h3>
 <p>解压上面下载的sdk到你的工作目录，我这里就放到了Users/xxx目录下<br>
-<img src="https://hashdog.cn/usr/uploads/2019/12/1471194762.png" alt="11.png" loading="lazy"><br>
+<img src="https://hashdogcn.github.io/post-images/1599445887060.png" alt="" loading="lazy"><br>
 然后把环境变量添加到base_profile里面，我们使用vi工具操作（我一般习惯性用vi，你们熟悉其他编辑器也可以使用的）</p>
 <pre><code class="language-shell">vi ~/.bash_profile 
 </code></pre>
-<p><img src="https://hashdog.cn/usr/uploads/2019/12/1401472842.png" alt="222.png" loading="lazy"><br>
+<p><img src="https://hashdogcn.github.io/post-images/1599445903622.png" alt="" loading="lazy"><br>
 添加刚刚解压的flutter sdk的目录到path</p>
 <pre><code class="language-shell">export PATH=$PATH:/Users/xxxx/flutter/bin
 </code></pre>
@@ -577,11 +583,11 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 <p>保存退出然后运行</p>
 <pre><code class="language-shell">source ~/.bash_profile 
 </code></pre>
-<p>这样环境变量就弄好了，如果重启失效可以参考 <a href="https://hashdog.cn/android/40.html" title="macOS配置adb">macOS配置adb</a> 最后特别提醒</p>
+<p>这样环境变量就弄好了，如果重启失效可以参考 <a href="https://hashdog.cn/post/macos-pei-zhi-adb/%22macOS%E9%85%8D%E7%BD%AEadb%22">macOS配置adb</a> 最后特别提醒</p>
 <p>终端运行flutter doctor检查flutter环境安装情况</p>
 <pre><code class="language-shell">flutter doctor
 </code></pre>
-<p><img src="https://hashdog.cn/usr/uploads/2019/12/2709347487.png" alt="333.png" loading="lazy"><br>
+<p><img src="https://hashdogcn.github.io/post-images/1599445960135.png" alt="" loading="lazy"><br>
 运行后如图有flutter版本号就是安装成功了，下方有列举了一些开发工具安装情况，打x的表示没有安装，打勾表示安装好了的，例如我这里Android Studio已经打勾了就安装好flutter插件了。</p>
 <h3 id="开发工具安装flutter插件">开发工具安装flutter插件</h3>
 <blockquote>
@@ -593,13 +599,13 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 <li>Dart：提供Dart语言的支持</li>
 </ol>
 <p>首先打开Android Studio，找到preferences --&gt; plugins --&gt; 搜索flutter，如图<br>
-<img src="https://hashdog.cn/usr/uploads/2019/12/2827301718.png" alt="444.png" loading="lazy"><br>
+<img src="https://hashdogcn.github.io/post-images/1599445971716.png" alt="" loading="lazy"><br>
 我这里已经安装好了，没有安装的直接点击install即可，一会会弹出同时安装Dart，点击yes就可以了</p>
 <h3 id="开发工具界面展示">开发工具界面展示</h3>
 <blockquote>
 <p>这里同样使用Android Studio</p>
 </blockquote>
-<p><img src="https://hashdog.cn/usr/uploads/2019/12/3015397113.png" alt="555.png" loading="lazy"><br>
+<p><img src="https://hashdogcn.github.io/post-images/1599445983847.png" alt="" loading="lazy"><br>
 这里我们可以看到即可以使用Android手机或者模拟器也可以使用iOS的手机或者模拟器，也就是说我们可以在两大移动平台可以预览我们的代码。</p>
 
             </div>
@@ -621,6 +627,8 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
     </li>
   </ul>
   <div class="tags">
+    
+      <a href="https://hashdogcn.github.io/tag/N0CQvW_iu/"># Flutter</a>
     
       <a href="https://hashdogcn.github.io/tag/XWqx-1xXw/"># 学习路线</a>
     
@@ -1709,11 +1717,11 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;/ul&gt;
 &lt;h3 id=&#34;安装flutter-sdk&#34;&gt;安装flutter sdk&lt;/h3&gt;
 &lt;p&gt;解压上面下载的sdk到你的工作目录，我这里就放到了Users/xxx目录下&lt;br&gt;
-&lt;img src=&#34;https://hashdog.cn/usr/uploads/2019/12/1471194762.png&#34; alt=&#34;11.png&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445887060.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 然后把环境变量添加到base_profile里面，我们使用vi工具操作（我一般习惯性用vi，你们熟悉其他编辑器也可以使用的）&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.bash_profile 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdog.cn/usr/uploads/2019/12/1401472842.png&#34; alt=&#34;222.png&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445903622.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 添加刚刚解压的flutter sdk的目录到path&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;export PATH=$PATH:/Users/xxxx/flutter/bin
 &lt;/code&gt;&lt;/pre&gt;
@@ -1725,11 +1733,11 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;p&gt;保存退出然后运行&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;source ~/.bash_profile 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这样环境变量就弄好了，如果重启失效可以参考 &lt;a href=&#34;https://hashdog.cn/android/40.html&#34; title=&#34;macOS配置adb&#34;&gt;macOS配置adb&lt;/a&gt; 最后特别提醒&lt;/p&gt;
+&lt;p&gt;这样环境变量就弄好了，如果重启失效可以参考 &lt;a href=&#34;https://hashdog.cn/post/macos-pei-zhi-adb/%22macOS%E9%85%8D%E7%BD%AEadb%22&#34;&gt;macOS配置adb&lt;/a&gt; 最后特别提醒&lt;/p&gt;
 &lt;p&gt;终端运行flutter doctor检查flutter环境安装情况&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;flutter doctor
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdog.cn/usr/uploads/2019/12/2709347487.png&#34; alt=&#34;333.png&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445960135.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 运行后如图有flutter版本号就是安装成功了，下方有列举了一些开发工具安装情况，打x的表示没有安装，打勾表示安装好了的，例如我这里Android Studio已经打勾了就安装好flutter插件了。&lt;/p&gt;
 &lt;h3 id=&#34;开发工具安装flutter插件&#34;&gt;开发工具安装flutter插件&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -1741,13 +1749,13 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;li&gt;Dart：提供Dart语言的支持&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;首先打开Android Studio，找到preferences --&amp;gt; plugins --&amp;gt; 搜索flutter，如图&lt;br&gt;
-&lt;img src=&#34;https://hashdog.cn/usr/uploads/2019/12/2827301718.png&#34; alt=&#34;444.png&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445971716.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 我这里已经安装好了，没有安装的直接点击install即可，一会会弹出同时安装Dart，点击yes就可以了&lt;/p&gt;
 &lt;h3 id=&#34;开发工具界面展示&#34;&gt;开发工具界面展示&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这里同样使用Android Studio&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdog.cn/usr/uploads/2019/12/3015397113.png&#34; alt=&#34;555.png&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445983847.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 这里我们可以看到即可以使用Android手机或者模拟器也可以使用iOS的手机或者模拟器，也就是说我们可以在两大移动平台可以预览我们的代码。&lt;/p&gt;
 ">macOS下搭建Flutter开发环境</a>
       </div>
@@ -1765,15 +1773,15 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;p&gt;工欲善其事必先利其器&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://hashdog.cn/flutter_study/58.html&#34; title=&#34;macOS下搭建Flutter开发环境&#34;&gt;macOS下搭建Flutter开发环境&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://hashdog.cn/flutter_study/59.html&#34; title=&#34;Windows下搭建Flutter开发环境&#34;&gt;Windows下搭建Flutter开发环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hashdog.cn/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/%22macOS%E4%B8%8B%E6%90%AD%E5%BB%BAFlutter%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%22&#34;&gt;macOS下搭建Flutter开发环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hashdog.cn/post/windows-xia-da-jian-flutter-kai-fa-huan-jing/%22Windows%E4%B8%8B%E6%90%AD%E5%BB%BAFlutter%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%22&#34;&gt;Windows下搭建Flutter开发环境&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;第二篇-创建第一个flutter程序&#34;&gt;第二篇-创建第一个Flutter程序&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;HelloWorld一切语言的开端&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://hashdog.cn/flutter_study/64.html&#34; title=&#34;创建第一个Flutter APP - HelloWorld&#34;&gt;创建第一个Flutter APP - HelloWorld&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[创建第一个Flutter APP - HelloWorld](https://hashdog.cn/post/chuang-jian-di-yi-ge-flutter-app-helloworld/&amp;quot;创建第一个Flutter APP - HelloWorld&amp;quot;)&lt;/li&gt;
 &lt;/ul&gt;
 ">学习路线</a>
       </div>
