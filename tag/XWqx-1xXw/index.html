@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>HashDog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1602921825205">
+<link rel="shortcut icon" href="/favicon.ico?v=1614137805270">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -71,6 +71,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -81,6 +83,8 @@
             </li>
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -93,6 +97,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -103,6 +109,8 @@
             </li>
           
             
+            
+              
             
             <li class="nav-item ">
               
@@ -115,6 +123,8 @@
           
             
             
+              
+            
             <li class="nav-item ">
               
               
@@ -124,6 +134,16 @@
               
             </li>
           
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
           
           
             <li id="fa_search" class="nav-item">
@@ -177,7 +197,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">8</span>
+        <span class="site-item-stat-count">9</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -197,8 +217,6 @@
   
     
   
-  
-
   
 
 
@@ -243,7 +261,9 @@
       
       
       
-      <a href="https://hashdogcn.github.io/post/chuang-jian-di-yi-ge-flutter-app-helloworld/">
+      
+      
+      <a href="https://www.hashdog.cn/post/chuang-jian-di-yi-ge-flutter-app-helloworld/">
         <div class="motion-warpper">
           <div class="tag-post-node">
             <h1>
@@ -260,7 +280,7 @@
       
       
       
-      <a href="https://hashdogcn.github.io/post/windows-xia-da-jian-flutter-kai-fa-huan-jing/">
+      <a href="https://www.hashdog.cn/post/windows-xia-da-jian-flutter-kai-fa-huan-jing/">
         <div class="motion-warpper">
           <div class="tag-post-node">
             <h1>
@@ -277,7 +297,7 @@
       
       
       
-      <a href="https://hashdogcn.github.io/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/">
+      <a href="https://www.hashdog.cn/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/">
         <div class="motion-warpper">
           <div class="tag-post-node">
             <h1>
@@ -334,546 +354,6 @@
     
   </div>
   
-  
-  
-<link rel="stylesheet" href="/media/live2d/css/live2d.css" />
-<div class="box-scale">
-  <div id="landlord" style="left: 5px;bottom: px;"
-    data-key="">
-    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
-    
-
-      <div class="message" style="opacity:0"></div>
-      <div class="live_talk_input_body">
-        <div class="live_talk_input_name_body">
-          <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off"
-            placeholder="你的名字" />
-        </div>
-        <div class="live_talk_input_text_body">
-          <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off"
-            placeholder="要和我聊什么呀？" />
-          <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
-        </div>
-      </div>
-      <input name="live_talk" id="live_talk" value="1" type="hidden" />
-      <div class="live_ico_box">
-        <div class="live_ico_item type_info" id="showInfoBtn"></div>
-        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
-        
-        <div class="live_ico_item type_youdu" id="youduButton"></div>
-        <div class="live_ico_item type_quit" id="hideButton"></div>
-        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
-        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
-        <input id="duType" value="douqilai" type="hidden">
-        
-      </div>
-    
-  </div>
-</div>
-<div id="open_live2d">召唤看板娘</div>
-<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<script>
-  var message_Path = 'https://cdn.jsdelivr.net/gh/hsxyhao/live2d.github.io@master/';
-  let landlord = document.querySelector('#landlord');
-  var apiKey = landlord.dataset.key;
-</script>
-<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
-<script>
-	var home_Path = document.location.protocol + '//' + window.document.location.hostname + ":" + window.document.location.port + '/';
-	var userAgent = window.navigator.userAgent.toLowerCase();
-	var norunAI = ["android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser", "msie", "trident/7.0"];
-	var norunFlag = false;
-
-	for (var i = 0; i < norunAI.length; i++) {
-		if (userAgent.indexOf(norunAI[i]) > -1) {
-			norunFlag = true;
-			break;
-		}
-	}
-
-	if (!window.WebGLRenderingContext) {
-		norunFlag = true;
-	}
-
-	if (!norunFlag) {
-		var hitFlag = false;
-		var AIFadeFlag = false;
-		var liveTlakTimer = null;
-		var sleepTimer_ = null;
-		var AITalkFlag = false;
-		var talkNum = 0;
-		(function () {
-			function renderTip(template, context) {
-				var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
-				return template.replace(tokenReg, function (word, slash1, token, slash2) {
-					if (slash1 || slash2) {
-						return word.replace('\\', '');
-					}
-					var variables = token.replace(/\s/g, '').split('.');
-					var currentObject = context;
-					var i, length, variable;
-					for (i = 0, length = variables.length; i < length; ++i) {
-						variable = variables[i];
-						currentObject = currentObject[variable];
-						if (currentObject === undefined || currentObject === null) return '';
-					}
-					return currentObject;
-				});
-			}
-
-			String.prototype.renderTip = function (context) {
-				return renderTip(this, context);
-			};
-
-			var re = /x/;
-			re.toString = function () {
-				showMessage('哈哈，你打开了控制台，是想要看看我的秘密吗？', 5000);
-				return '';
-			};
-
-			$(document).on('copy', function () {
-				showMessage('你都复制了些什么呀，转载要记得加上出处哦~~', 5000);
-			});
-
-			function initTips() {
-				$.ajax({
-					cache: true,
-					url: message_Path + 'message.json',
-					dataType: "json",
-					success: function (result) {
-						$.each(result.mouseover, function (index, tips) {
-							$(tips.selector).mouseover(function () {
-								var text = tips.text;
-								if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
-								text = text.renderTip({ text: $(this).text() });
-								showMessage(text, 3000);
-								talkValTimer();
-								clearInterval(liveTlakTimer);
-								liveTlakTimer = null;
-							});
-							$(tips.selector).mouseout(function () {
-								showHitokoto();
-								if (liveTlakTimer == null) {
-									liveTlakTimer = window.setInterval(function () {
-										showHitokoto();
-									}, 15000);
-								};
-							});
-						});
-						$.each(result.click, function (index, tips) {
-							$(tips.selector).click(function () {
-								if (hitFlag) {
-									return false
-								}
-								hitFlag = true;
-								setTimeout(function () {
-									hitFlag = false;
-								}, 8000);
-								var text = tips.text;
-								if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
-								text = text.renderTip({ text: $(this).text() });
-								showMessage(text, 3000);
-							});
-							clearInterval(liveTlakTimer);
-							liveTlakTimer = null;
-							if (liveTlakTimer == null) {
-								liveTlakTimer = window.setInterval(function () {
-									showHitokoto();
-								}, 15000);
-							};
-						});
-					}
-				});
-			}
-			initTips();
-
-			var text;
-			if (document.referrer !== '') {
-				var referrer = document.createElement('a');
-				referrer.href = document.referrer;
-				text = '嗨！来自 <span style="color:#0099cc;">' + referrer.hostname + '</span> 的朋友！';
-				var domain = referrer.hostname.split('.')[1];
-				if (domain == 'baidu') {
-					text = '嗨！ 来自 百度搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-				} else if (domain == 'so') {
-					text = '嗨！ 来自 360搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-				} else if (domain == 'google') {
-					text = '嗨！ 来自 谷歌搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-				}
-			} else {
-				if (window.location.href == home_Path) { //主页URL判断，需要斜杠结尾
-					var now = (new Date()).getHours();
-					if (now > 23 || now <= 5) {
-						text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？';
-					} else if (now > 5 && now <= 7) {
-						text = '早上好！一日之计在于晨，美好的一天就要开始了！';
-					} else if (now > 7 && now <= 11) {
-						text = '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！';
-					} else if (now > 11 && now <= 14) {
-						text = '中午了，工作了一个上午，现在是午餐时间！';
-					} else if (now > 14 && now <= 17) {
-						text = '午后很容易犯困呢，今天的运动目标完成了吗？';
-					} else if (now > 17 && now <= 19) {
-						text = '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~~';
-					} else if (now > 19 && now <= 21) {
-						text = '晚上好，今天过得怎么样？';
-					} else if (now > 21 && now <= 23) {
-						text = '已经这么晚了呀，早点休息吧，晚安~~';
-					} else {
-						text = '嗨~ 快来逗我玩吧！';
-					}
-				} else {
-					text = '欢迎阅读<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
-				}
-			}
-			showMessage(text, 12000);
-		})();
-
-		liveTlakTimer = setInterval(function () {
-			showHitokoto();
-		}, 15000);
-
-		function showHitokoto() {
-			if (sessionStorage.getItem("Sleepy") !== "1") {
-				if (!AITalkFlag) {
-					$.getJSON('https://v1.hitokoto.cn/', function (result) {
-						talkValTimer();
-						showMessage(result.hitokoto, 0);
-					});
-				}
-			} else {
-				hideMessage(0);
-				if (sleepTimer_ == null) {
-					sleepTimer_ = setInterval(function () {
-						checkSleep();
-					}, 200);
-				}
-			}
-		}
-
-		function checkSleep() {
-			var sleepStatu = sessionStorage.getItem("Sleepy");
-			if (sleepStatu !== '1') {
-				talkValTimer();
-				showMessage('你回来啦~', 0);
-				clearInterval(sleepTimer_);
-				sleepTimer_ = null;
-			}
-		}
-
-		function showMessage(text, timeout) {
-			if (Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1) - 1];
-			$('.message').stop();
-			$('.message').html(text);
-			$('.message').fadeTo(200, 1);
-			//if (timeout === null) timeout = 5000;
-			//hideMessage(timeout);
-		}
-		function talkValTimer() {
-			$('#live_talk').val('1');
-		}
-
-		function hideMessage(timeout) {
-			//$('.message').stop().css('opacity',1);
-			if (timeout === null) timeout = 5000;
-			$('.message').delay(timeout).fadeTo(200, 0);
-		}
-
-		function initLive2d() {
-			$('#hideButton').on('click', function () {
-				if (AIFadeFlag) {
-					return false;
-				} else {
-					AIFadeFlag = true;
-					localStorage.setItem("live2dhidden", "0");
-					$('#landlord').fadeOut(200);
-					$('#open_live2d').delay(200).fadeIn(200);
-					setTimeout(function () {
-						AIFadeFlag = false;
-					}, 300);
-				}
-			});
-			$('#open_live2d').on('click', function () {
-				if (AIFadeFlag) {
-					return false;
-				} else {
-					AIFadeFlag = true;
-					localStorage.setItem("live2dhidden", "1");
-					$('#open_live2d').fadeOut(200);
-					$('#landlord').delay(200).fadeIn(200);
-					setTimeout(function () {
-						AIFadeFlag = false;
-					}, 300);
-				}
-			});
-			$('#youduButton').on('click', function () {
-				if ($('#youduButton').hasClass('doudong')) {
-					var typeIs = $('#youduButton').attr('data-type');
-					$('#youduButton').removeClass('doudong');
-					$('body').removeClass(typeIs);
-					$('#youduButton').attr('data-type', '');
-				} else {
-					var duType = $('#duType').val();
-					var duArr = duType.split(",");
-					var dataType = duArr[Math.floor(Math.random() * duArr.length)];
-
-					$('#youduButton').addClass('doudong');
-					$('#youduButton').attr('data-type', dataType);
-					$('body').addClass(dataType);
-				}
-			});
-			if (apiKey) {
-				$('#showInfoBtn').on('click', function () {
-					var live_statu = $('#live_statu_val').val();
-					if (live_statu == "0") {
-						return
-					} else {
-						$('#live_statu_val').val("0");
-						$('.live_talk_input_body').fadeOut(500);
-						AITalkFlag = false;
-						showHitokoto();
-						$('#showTalkBtn').show();
-						$('#showInfoBtn').hide();
-					}
-				});
-				$('#showTalkBtn').on('click', function () {
-					var live_statu = $('#live_statu_val').val();
-					if (live_statu == "1") {
-						return
-					} else {
-						$('#live_statu_val').val("1");
-						$('.live_talk_input_body').fadeIn(500);
-						AITalkFlag = true;
-						$('#showTalkBtn').hide();
-						$('#showInfoBtn').show();
-
-					}
-				});
-				$('#talk_send').on('click', function () {
-					var info_ = $('#AIuserText').val();
-					var userid_ = $('#AIuserName').val();
-					if (info_ == "") {
-						showMessage('写点什么吧！', 0);
-						return;
-					}
-					if (userid_ == "") {
-						showMessage('聊之前请告诉我你的名字吧！', 0);
-						return;
-					}
-					showMessage('思考中~', 0);
-					let protocol = window.location.protocol.indexOf("s") > 0 ? "https" : "http";
-					$.ajax({
-						type: "get",
-						url: `${protocol}://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
-						dataType: "json",
-						success: function (res) {
-							talkValTimer();
-							showMessage(res.text, 0);
-							$('#AIuserText').val("");
-							sessionStorage.setItem("live2duser", userid_);
-						},
-						error: function (e) {
-							talkValTimer();
-							showMessage('似乎有什么错误，请和站长联系！', 0);
-						}
-					});
-				});
-			} else {
-				$('#showInfoBtn').hide();
-				$('#showTalkBtn').hide();
-			}
-			//获取音乐信息初始化
-			var bgmListInfo = $('input[name=live2dBGM]');
-			if (bgmListInfo.length == 0) {
-				$('#musicButton').hide();
-			} else {
-				var bgmPlayNow = parseInt($('#live2d_bgm').attr('data-bgm'));
-				var bgmPlayTime = 0;
-				var live2dBGM_Num = sessionStorage.getItem("live2dBGM_Num");
-				var live2dBGM_PlayTime = sessionStorage.getItem("live2dBGM_PlayTime");
-				if (live2dBGM_Num) {
-					if (live2dBGM_Num <= $('input[name=live2dBGM]').length - 1) {
-						bgmPlayNow = parseInt(live2dBGM_Num);
-					}
-				}
-				if (live2dBGM_PlayTime) {
-					bgmPlayTime = parseInt(live2dBGM_PlayTime);
-				}
-				var live2dBGMSrc = bgmListInfo.eq(bgmPlayNow).val();
-				$('#live2d_bgm').attr('data-bgm', bgmPlayNow);
-				$('#live2d_bgm').attr('src', live2dBGMSrc);
-				$('#live2d_bgm')[0].currentTime = bgmPlayTime;
-				$('#live2d_bgm')[0].volume = 0.5;
-				var live2dBGM_IsPlay = sessionStorage.getItem("live2dBGM_IsPlay");
-				var live2dBGM_WindowClose = sessionStorage.getItem("live2dBGM_WindowClose");
-				if (live2dBGM_IsPlay == '0' && live2dBGM_WindowClose == '0') {
-					$('#live2d_bgm')[0].play();
-					$('#musicButton').addClass('play');
-				}
-				sessionStorage.setItem("live2dBGM_WindowClose", '1');
-				$('#musicButton').on('click', function () {
-					if ($('#musicButton').hasClass('play')) {
-						$('#live2d_bgm')[0].pause();
-						$('#musicButton').removeClass('play');
-						sessionStorage.setItem("live2dBGM_IsPlay", '1');
-					} else {
-						$('#live2d_bgm')[0].play();
-						$('#musicButton').addClass('play');
-						sessionStorage.setItem("live2dBGM_IsPlay", '0');
-					}
-				});
-				window.onbeforeunload = function () {
-					sessionStorage.setItem("live2dBGM_WindowClose", '0');
-					if ($('#musicButton').hasClass('play')) {
-						sessionStorage.setItem("live2dBGM_IsPlay", '0');
-					}
-				}
-				document.getElementById('live2d_bgm').addEventListener("timeupdate", function () {
-					var live2dBgmPlayTimeNow = document.getElementById('live2d_bgm').currentTime;
-					sessionStorage.setItem("live2dBGM_PlayTime", live2dBgmPlayTimeNow);
-				});
-				document.getElementById('live2d_bgm').addEventListener("ended", function () {
-					var listNow = parseInt($('#live2d_bgm').attr('data-bgm'));
-					listNow++;
-					if (listNow > $('input[name=live2dBGM]').length - 1) {
-						listNow = 0;
-					}
-					var listNewSrc = $('input[name=live2dBGM]').eq(listNow).val();
-					sessionStorage.setItem("live2dBGM_Num", listNow);
-					$('#live2d_bgm').attr('src', listNewSrc);
-					$('#live2d_bgm')[0].play();
-					$('#live2d_bgm').attr('data-bgm', listNow);
-				});
-				document.getElementById('live2d_bgm').addEventListener("error", function () {
-					$('#live2d_bgm')[0].pause();
-					$('#musicButton').removeClass('play');
-					showMessage('音乐似乎加载不出来了呢！', 0);
-				});
-			}
-			//获取用户名
-			var live2dUser = sessionStorage.getItem("live2duser");
-			if (live2dUser !== null) {
-				$('#AIuserName').val(live2dUser);
-			}
-			//获取位置
-			var landL = sessionStorage.getItem("historywidth");
-			var landB = sessionStorage.getItem("historyheight");
-			if (landL == null || landB == null) {
-				landL = '5px'
-				landB = '0px'
-			}
-			$('#landlord').css('left', landL + 'px');
-			$('#landlord').css('bottom', landB + 'px');
-			//移动
-			function getEvent() {
-				return window.event || arguments.callee.caller.arguments[0];
-			}
-			var smcc = document.getElementById("landlord");
-			var moveX = 0;
-			var moveY = 0;
-			var moveBottom = 0;
-			var moveLeft = 0;
-			var moveable = false;
-			var docMouseMoveEvent = document.onmousemove;
-			var docMouseUpEvent = document.onmouseup;
-			smcc.onmousedown = function () {
-				var ent = getEvent();
-				moveable = true;
-				moveX = ent.clientX;
-				moveY = ent.clientY;
-				var obj = smcc;
-				moveBottom = parseInt(obj.style.bottom);
-				moveLeft = parseInt(obj.style.left);
-				if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
-					window.getSelection().removeAllRanges();
-				}
-				document.onmousemove = function () {
-					if (moveable) {
-						var ent = getEvent();
-						var x = moveLeft + ent.clientX - moveX;
-						var y = moveBottom + (moveY - ent.clientY);
-						obj.style.left = x + "px";
-						obj.style.bottom = y + "px";
-					}
-				};
-				document.onmouseup = function () {
-					if (moveable) {
-						var historywidth = obj.style.left;
-						var historyheight = obj.style.bottom;
-						historywidth = historywidth.replace('px', '');
-						historyheight = historyheight.replace('px', '');
-						sessionStorage.setItem("historywidth", historywidth);
-						sessionStorage.setItem("historyheight", historyheight);
-						document.onmousemove = docMouseMoveEvent;
-						document.onmouseup = docMouseUpEvent;
-						moveable = false;
-						moveX = 0;
-						moveY = 0;
-						moveBottom = 0;
-						moveLeft = 0;
-					}
-				};
-			};
-		}
-		$(document).ready(function () {
-			var AIimgSrc = [];
-			let chooseLive2d = 'aoba'
-			if (chooseLive2d === 'histoire') {
-				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_00.png");
-				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_01.png");
-				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_02.png");
-				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_03.png");
-			} else if (chooseLive2d === 'rem') {
-				AIimgSrc.push(message_Path + "model/rem/remu2048/texture_00.png");
-			} else if (chooseLive2d === 'aoba') {
-				AIimgSrc.push(message_Path + "model/aoba/textures/texture_00.png");
-			} else if (chooseLive2d === 'hijiki') {
-				AIimgSrc.push(message_Path + "model/hijiki/moc/hijiki.2048/texture_00.png");
-			} else if (chooseLive2d === 'tororo') {
-				AIimgSrc.push(message_Path + "model/tororo/moc/tororo.2048/texture_00.png");
-			}
-			var images = [];
-			var imgLength = AIimgSrc.length;
-			var loadingNum = 0;
-			for (var i = 0; i < imgLength; i++) {
-				images[i] = new Image();
-				images[i].src = AIimgSrc[i];
-				images[i].onload = function () {
-					loadingNum++;
-					if (loadingNum === imgLength) {
-						var live2dhidden = localStorage.getItem("live2dhidden");
-						if (live2dhidden === "0") {
-							setTimeout(function () {
-								$('#open_live2d').fadeIn(200);
-							}, 1300);
-						} else {
-							setTimeout(function () {
-								$('#landlord').fadeIn(200);
-							}, 1300);
-						}
-						let model = '';
-						if (chooseLive2d === 'histoire') {
-							model = message_Path + "model/histoire/model.json";
-						} else if (chooseLive2d === 'rem') {
-							model = message_Path + "model/rem/model.json";
-						} else if (chooseLive2d === 'aoba') {
-							model = message_Path + "model/aoba/model.json";
-						} else if (chooseLive2d === 'hijiki') {
-							model = message_Path + "model/hijiki/hijiki.model.json";
-						} else if (chooseLive2d === 'tororo') {
-							model = message_Path + "model/tororo/tororo.model.json";
-						}
-						setTimeout(function () {
-							loadlive2d("live2d", model);
-						}, 1000);
-						initLive2d();
-						images = null;
-					}
-				}
-			}
-		});
-	}
-</script>
   
   
 </div>
@@ -1055,7 +535,17 @@
     <div class="result" id="result">
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/5-fen-zhong-jie-jue-google-play-shang-jia-app-she-zhi-yin-si-zheng-ce-sheng-ming-wen-ti/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/homebrew-guo-nei-an-zhuang-jiao-ben/"" data-c="
+          &lt;p&gt;项目名称：HomebrewCN&lt;br&gt;
+项目作者：CunKai&lt;br&gt;
+项目地址：https://gitee.com/cunkai/HomebrewCN&lt;/p&gt;
+&lt;p&gt;终端输入&lt;br&gt;
+/bin/zsh -c &amp;quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&amp;quot;&lt;/p&gt;
+">Homebrew国内安装脚本</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/5-fen-zhong-jie-jue-google-play-shang-jia-app-she-zhi-yin-si-zheng-ce-sheng-ming-wen-ti/"" data-c="
           &lt;blockquote&gt;
 &lt;p&gt;在我们的app上架到google play后，为了赚点小钱，就集成google ads，然而这会引发一个新的问题，那就是设置隐私政策声明的问题，通常我们会收到一封来自google play的邮件，提示我们app违背了 Issue: Violation of Usage of Android Advertising ID policy and section 4.8 of the Developer Distribution Agreement，需要对用户声明，告知用户，会获取用户的隐私信息。得输入一个url，url的内容就是隐私声明。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1075,11 +565,11 @@
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/ios-huo-qu-app-de-ipa-bao-yi-ji-zi-yuan-wen-jian/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/ios-huo-qu-app-de-ipa-bao-yi-ji-zi-yuan-wen-jian/"" data-c="
           &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;首先需要一台mac电脑，安装Apple Configurator 2软件，这个软件在App Store上就可以搜到，长这个样子&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599534422104.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599534422104.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;然后把iPhone连上电脑，打开Apple Configurator 2软件&lt;/p&gt;
@@ -1092,19 +582,19 @@
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/chuang-jian-di-yi-ge-flutter-app-helloworld/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/chuang-jian-di-yi-ge-flutter-app-helloworld/"" data-c="
           &lt;h1 id=&#34;&#34;&gt;&lt;/h1&gt;
 ">创建第一个Flutter APP - HelloWorld</a>
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/windows-xia-da-jian-flutter-kai-fa-huan-jing/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/windows-xia-da-jian-flutter-kai-fa-huan-jing/"" data-c="
           &lt;h1 id=&#34;&#34;&gt;&lt;/h1&gt;
 ">Windows下搭建Flutter开发环境</a>
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/"" data-c="
           &lt;p&gt;首先要下载必要的文件&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我选择开发工具的是Android Studio，因为我本身就是开发Android的方便使用我就直接使用Android Studio了，当然你们还可以选择IDEA或者Visual Studio&lt;/p&gt;
@@ -1115,11 +605,11 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;安装flutter-sdk&#34;&gt;安装flutter sdk&lt;/h3&gt;
 &lt;p&gt;解压上面下载的sdk到你的工作目录，我这里就放到了Users/xxx目录下&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445887060.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599445887060.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 然后把环境变量添加到base_profile里面，我们使用vi工具操作（我一般习惯性用vi，你们熟悉其他编辑器也可以使用的）&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.bash_profile 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445903622.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hashdog.cn/post-images/1599445903622.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 添加刚刚解压的flutter sdk的目录到path&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;export PATH=$PATH:/Users/xxxx/flutter/bin
 &lt;/code&gt;&lt;/pre&gt;
@@ -1135,7 +625,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;p&gt;终端运行flutter doctor检查flutter环境安装情况&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;flutter doctor
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445960135.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hashdog.cn/post-images/1599445960135.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 运行后如图有flutter版本号就是安装成功了，下方有列举了一些开发工具安装情况，打x的表示没有安装，打勾表示安装好了的，例如我这里Android Studio已经打勾了就安装好flutter插件了。&lt;/p&gt;
 &lt;h3 id=&#34;开发工具安装flutter插件&#34;&gt;开发工具安装flutter插件&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -1147,24 +637,24 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;li&gt;Dart：提供Dart语言的支持&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;首先打开Android Studio，找到preferences --&amp;gt; plugins --&amp;gt; 搜索flutter，如图&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445971716.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599445971716.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 我这里已经安装好了，没有安装的直接点击install即可，一会会弹出同时安装Dart，点击yes就可以了&lt;/p&gt;
 &lt;h3 id=&#34;开发工具界面展示&#34;&gt;开发工具界面展示&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这里同样使用Android Studio&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445983847.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hashdog.cn/post-images/1599445983847.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 这里我们可以看到即可以使用Android手机或者模拟器也可以使用iOS的手机或者模拟器，也就是说我们可以在两大移动平台可以预览我们的代码。&lt;/p&gt;
 ">macOS下搭建Flutter开发环境</a>
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/xue-xi-lu-xian/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/xue-xi-lu-xian/"" data-c="
           &lt;p&gt;#&lt;strong&gt;Flutter学习路线&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;首先简单介绍一下Flutter，Flutter是Google的UI工具包，可通过编写一份代码为移动，网络和桌面构建漂亮的应用程序 。&lt;br&gt;
 目前国内还主要是大厂们在实践，比如咸鱼、美团等。&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599445750434.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599445750434.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;第一篇-环境搭建&#34;&gt;第一篇-环境搭建&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -1185,13 +675,13 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/"" data-c="
           &lt;h2 id=&#34;下载googleplay签名证书&#34;&gt;下载GooglePlay签名证书&lt;/h2&gt;
 &lt;p&gt;在上架GooglePlay的时候谷歌会推荐加入谷歌签名计划，上架的应用会在谷歌后台重新签名打包，导致我们的本地密钥被覆盖的情况。很多小伙伴在做谷歌登录Facebook登录的时候密钥的哈希值在测试没问题上架就不行就是这个问题。&lt;/p&gt;
 &lt;p&gt;首先在GooglePlay控制台下载谷歌签名的证书文件。&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599444202224.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599444202224.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 下载的文件是这个样子的。&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599444182972.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599444182972.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 这时有点疑虑了，怎么跟本地的签名文件不一样呢。是的，在谷歌控制台下载的证书文件不是我们本地签名的.keystore或.jks签名文件。&lt;br&gt;
 那么问题来了，这种.der证书文件能不能获取到哈希值呢，答案是可以的。&lt;/p&gt;
 &lt;h2 id=&#34;facebook-keyhash获取方法&#34;&gt;Facebook keyhash获取方法&lt;/h2&gt;
@@ -1210,18 +700,18 @@ debug.keystore：签名文件路径&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;福利&#34;&gt;福利&lt;/h2&gt;
 &lt;p&gt;顺带提供一个我自己开发的获取Facebook哈希值的小工具BuildfbKey，非常方便使用&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599444223740.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599444223740.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 只需要把签名文件拖进path框然后输入alias和password点击生成即可，免去了在终端输入一长串命令的繁琐步骤。&lt;/p&gt;
-&lt;p&gt;工具下载链接：&lt;a href=&#34;https://hashdogcn.github.io/post-images/BuildfbKey.zip&#34;&gt;BuildfbKey.jar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;工具下载链接：&lt;a href=&#34;https://www.hashdog.cn/post-images/BuildfbKey.zip&#34;&gt;BuildfbKey.jar&lt;/a&gt;&lt;/p&gt;
 ">GooglePlay上架应用的Facebook keyhash获取方法</a>
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/macos-pei-zhi-adb/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/macos-pei-zhi-adb/"" data-c="
           &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;1.首先打开终端命令行，我们检查一下是否有配置好adb命令，直接终端输入adb提示command not found: adb就是没有配置&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599279193938.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599279193938.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;2.下面我们在用户目录下输入&lt;/p&gt;
@@ -1229,14 +719,14 @@ debug.keystore：签名文件路径&lt;/p&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.bash_profile
 &lt;/code&gt;&lt;/pre&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599279226098.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://www.hashdog.cn/post-images/1599279226098.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;3.然后用vi工具直接键入导入adb命令的目录&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;export PATH=${PATH}:/Users/目录/Library/Android/sdk/platform-tools
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;此处『目录』为你电脑的用户名，如下图第一行所示，保存退出vi工具&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599279251178.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599279251178.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 如果你电脑的adb安装在其他目录，根据你安装的目录进行修改即可&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;4.用source命令执行一下刚刚新建的文件&lt;/li&gt;
@@ -1245,24 +735,24 @@ debug.keystore：签名文件路径&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;5.好了，到这里就大功告成了，执行一下adb看看是否配置成功&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599279291496.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599279291496.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;特殊情况&#34;&gt;特殊情况&lt;/h3&gt;
 &lt;p&gt;如果你的电脑重启后adb命令不生效了，可以修改.zshrc文件，重启自动source ~/.bash_profile&lt;/p&gt;
 &lt;p&gt;vi打开.zshrc文件，此时如果电脑没有这个文件会自动创建&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;vi ~/.zshrc
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599279301313.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hashdog.cn/post-images/1599279301313.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 最后一行输入&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;source ~/.bash_profile 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599279321712.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.hashdog.cn/post-images/1599279321712.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 保存后退出即可。&lt;/p&gt;
 ">macOS配置adb</a>
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/mac-xi-tong-chang-yong-cao-zuo/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/mac-xi-tong-chang-yong-cao-zuo/"" data-c="
           &lt;h3 id=&#34;命令行&#34;&gt;命令行&lt;/h3&gt;
 &lt;p&gt;1.删除目录下所有._开头文件&lt;br&gt;
 &lt;code&gt;find ./ -name &amp;quot;._*&amp;quot; -depth -exec rm {} \;&lt;/code&gt;&lt;/p&gt;
@@ -1273,7 +763,7 @@ debug.keystore：签名文件路径&lt;/p&gt;
 &lt;li&gt;**修改访达默认排列方式 **&lt;br&gt;
 &lt;strong&gt;快捷键&lt;/strong&gt; &lt;code&gt;command+J&lt;/code&gt;&lt;br&gt;
 随便打开一个访达窗口，按下快捷键command+J弹出修改默认设置窗口&lt;br&gt;
-&lt;img src=&#34;https://hashdogcn.github.io/post-images/1599278023055.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://www.hashdog.cn/post-images/1599278023055.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 修改分组方式和排列方式即可实现&lt;br&gt;
 😘 Enjoy~&lt;/li&gt;
 &lt;/ul&gt;
@@ -1281,7 +771,7 @@ debug.keystore：签名文件路径&lt;/p&gt;
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://hashdogcn.github.io/post/about/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://www.hashdog.cn/post/about/"" data-c="
           &lt;blockquote&gt;
 &lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -8,7 +8,7 @@
 <meta name="keywords" content="HashDog blog">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>macOS下搭建Flutter开发环境 | HashDog</title>
+<title>Homebrew国内安装脚本 | HashDog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1614137805270">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="macOS下搭建Flutter开发环境" />
-  <meta name="keywords" content="Flutter,学习路线" />
+  <meta name="description" content="Homebrew国内安装脚本" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -203,8 +203,7 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -240,201 +239,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%AE%89%E8%A3%85flutter-sdk">安装flutter sdk</a></li>
-<li><a href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85flutter%E6%8F%92%E4%BB%B6">开发工具安装flutter插件</a></li>
-<li><a href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA">开发工具界面展示</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -522,8 +326,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://www.hashdog.cn/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/">
-      macOS下搭建Flutter开发环境
+    <a class="post-title-link" href="https://www.hashdog.cn/post/homebrew-guo-nei-an-zhuang-jiao-ben/">
+      Homebrew国内安装脚本
     </a>
   </h1>
   <div class="post-meta">
@@ -531,42 +335,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-09-07 10:22:41">2020-09-07</span>
+      <span class="publish-time" data-t="2021-02-24 11:10:27">2021-02-24</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://www.hashdog.cn/tag/N0CQvW_iu/">
-        <span>Flutter</span>
-      </a>、
-      
-      
-      
-      <a href="https://www.hashdog.cn/tag/XWqx-1xXw/">
-        <span>学习路线</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>570<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>39<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/" data-flag-title="macOS下搭建Flutter开发环境" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/homebrew-guo-nei-an-zhuang-jiao-ben/" data-flag-title="Homebrew国内安装脚本" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -575,56 +360,11 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>首先要下载必要的文件</p>
-<blockquote>
-<p>我选择开发工具的是Android Studio，因为我本身就是开发Android的方便使用我就直接使用Android Studio了，当然你们还可以选择IDEA或者Visual Studio</p>
-</blockquote>
-<ul>
-<li><a href="https://flutter.dev/docs/development/tools/sdk/releases?tab=macos" title="Flutter sdk">Flutter sdk</a></li>
-<li><a href="https://developer.android.com/studio/" title="Android Studio">Android Studio</a></li>
-</ul>
-<h3 id="安装flutter-sdk">安装flutter sdk</h3>
-<p>解压上面下载的sdk到你的工作目录，我这里就放到了Users/xxx目录下<br>
-<img src="https://www.hashdog.cn/post-images/1599445887060.png" alt="" loading="lazy"><br>
-然后把环境变量添加到base_profile里面，我们使用vi工具操作（我一般习惯性用vi，你们熟悉其他编辑器也可以使用的）</p>
-<pre><code class="language-shell">vi ~/.bash_profile 
-</code></pre>
-<p><img src="https://www.hashdog.cn/post-images/1599445903622.png" alt="" loading="lazy"><br>
-添加刚刚解压的flutter sdk的目录到path</p>
-<pre><code class="language-shell">export PATH=$PATH:/Users/xxxx/flutter/bin
-</code></pre>
-<p>这个是我当前解压的目录，xxxx为用户名，仅作参考，其他目录也是一样的</p>
-<p>然后还需要加入两个镜像地址，由于在国内访问Flutter可能会受到限制，谷歌官方为中国开发者搭建的临时镜像（临时镜像不保证一直可以使用）</p>
-<pre><code class="language-shell">export PUB_HOSTED_URL=https://pub.flutter-io.cn
-export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-</code></pre>
-<p>保存退出然后运行</p>
-<pre><code class="language-shell">source ~/.bash_profile 
-</code></pre>
-<p>这样环境变量就弄好了，如果重启失效可以参考 <a href="https://hashdog.cn/post/macos-pei-zhi-adb/%22macOS%E9%85%8D%E7%BD%AEadb%22">macOS配置adb</a> 最后特别提醒</p>
-<p>终端运行flutter doctor检查flutter环境安装情况</p>
-<pre><code class="language-shell">flutter doctor
-</code></pre>
-<p><img src="https://www.hashdog.cn/post-images/1599445960135.png" alt="" loading="lazy"><br>
-运行后如图有flutter版本号就是安装成功了，下方有列举了一些开发工具安装情况，打x的表示没有安装，打勾表示安装好了的，例如我这里Android Studio已经打勾了就安装好flutter插件了。</p>
-<h3 id="开发工具安装flutter插件">开发工具安装flutter插件</h3>
-<blockquote>
-<p>我这里举例Android Studio插件安装</p>
-</blockquote>
-<p>我们需要两个插件</p>
-<ol>
-<li>flutter插件：提供程序的运行、调试和热重载等功能</li>
-<li>Dart：提供Dart语言的支持</li>
-</ol>
-<p>首先打开Android Studio，找到preferences --&gt; plugins --&gt; 搜索flutter，如图<br>
-<img src="https://www.hashdog.cn/post-images/1599445971716.png" alt="" loading="lazy"><br>
-我这里已经安装好了，没有安装的直接点击install即可，一会会弹出同时安装Dart，点击yes就可以了</p>
-<h3 id="开发工具界面展示">开发工具界面展示</h3>
-<blockquote>
-<p>这里同样使用Android Studio</p>
-</blockquote>
-<p><img src="https://www.hashdog.cn/post-images/1599445983847.png" alt="" loading="lazy"><br>
-这里我们可以看到即可以使用Android手机或者模拟器也可以使用iOS的手机或者模拟器，也就是说我们可以在两大移动平台可以预览我们的代码。</p>
+              <p>项目名称：HomebrewCN<br>
+项目作者：CunKai<br>
+项目地址：https://gitee.com/cunkai/HomebrewCN</p>
+<p>终端输入<br>
+/bin/zsh -c &quot;$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</p>
 
             </div>
             
@@ -647,7 +387,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://www.hashdog.cn/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/" title="macOS下搭建Flutter开发环境">https://www.hashdog.cn/post/macos-xia-da-jian-flutter-kai-fa-huan-jing/</a>
+      <a href="https://www.hashdog.cn/post/homebrew-guo-nei-an-zhuang-jiao-ben/" title="Homebrew国内安装脚本">https://www.hashdog.cn/post/homebrew-guo-nei-an-zhuang-jiao-ben/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -656,23 +396,15 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
   </ul>
   <div class="tags">
     
-      <a href="https://www.hashdog.cn/tag/N0CQvW_iu/"># Flutter</a>
-    
-      <a href="https://www.hashdog.cn/tag/XWqx-1xXw/"># 学习路线</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Windows下搭建Flutter开发环境" href="https://www.hashdog.cn/post/windows-xia-da-jian-flutter-kai-fa-huan-jing/">Windows下搭建Flutter开发环境</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Windows下搭建Flutter开发环境" href="https://www.hashdog.cn/post/windows-xia-da-jian-flutter-kai-fa-huan-jing/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="GooglePlay上架应用的Facebook keyhash获取方法" href="https://www.hashdog.cn/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/">GooglePlay上架应用的Facebook keyhash获取方法</a>
-        <a class="nav-mobile-next" title="GooglePlay上架应用的Facebook keyhash获取方法" href="https://www.hashdog.cn/post/googleplay-shang-jia-ying-yong-de-facebook-keyhash-huo-qu-fang-fa/">下一篇</a>
+        <a class="nav-pc-next" title="5分钟解决google play上架App设置隐私政策声明问题" href="https://www.hashdog.cn/post/5-fen-zhong-jie-jue-google-play-shang-jia-app-she-zhi-yin-si-zheng-ce-sheng-ming-wen-ti/">5分钟解决google play上架App设置隐私政策声明问题</a>
+        <a class="nav-mobile-next" title="5分钟解决google play上架App设置隐私政策声明问题" href="https://www.hashdog.cn/post/5-fen-zhong-jie-jue-google-play-shang-jia-app-she-zhi-yin-si-zheng-ce-sheng-ming-wen-ti/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
