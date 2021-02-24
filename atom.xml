@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.hashdog.cn</id>
     <title>HashDog</title>
-    <updated>2021-02-24T03:38:38.451Z</updated>
+    <updated>2021-02-24T03:42:01.354Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.hashdog.cn"/>
     <link rel="self" href="https://www.hashdog.cn/atom.xml"/>
