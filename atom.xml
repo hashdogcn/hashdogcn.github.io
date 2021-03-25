@@ -2,13 +2,42 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.hashdog.cn</id>
     <title>HashDog</title>
-    <updated>2021-03-17T09:53:04.060Z</updated>
+    <updated>2021-03-25T10:32:06.496Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.hashdog.cn"/>
     <link rel="self" href="https://blog.hashdog.cn/atom.xml"/>
     <logo>https://blog.hashdog.cn/images/avatar.png</logo>
     <icon>https://blog.hashdog.cn/favicon.ico</icon>
     <rights>All rights reserved 2021, HashDog</rights>
+    <entry>
+        <title type="html"><![CDATA[百分比换算十六进制透明度]]></title>
+        <id>https://blog.hashdog.cn/post/bai-fen-bi-huan-suan-shi-liu-jin-zhi-tou-ming-du/</id>
+        <link href="https://blog.hashdog.cn/post/bai-fen-bi-huan-suan-shi-liu-jin-zhi-tou-ming-du/">
+        </link>
+        <updated>2021-03-25T10:31:36.000Z</updated>
+        <content type="html"><![CDATA[<p>&lt;透明度参照表&gt;<br>
+00%=FF（不透明）<br>
+5%=F2<br>
+10%=E5<br>
+15%=D8<br>
+20%=CC<br>
+25%=BF<br>
+30%=B2<br>
+35%=A5<br>
+40%=99<br>
+45%=8c<br>
+50%=7F<br>
+55%=72<br>
+60%=66<br>
+65%=59<br>
+70%=4c<br>
+75%=3F<br>
+80%=33<br>
+85%=21<br>
+95%=0c<br>
+100%=00（全透明）</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[免费软著申请登记详细教程]]></title>
         <id>https://blog.hashdog.cn/post/mian-fei-ruan-zhu-shen-qing-deng-ji-xiang-xi-jiao-cheng/</id>
@@ -232,28 +261,6 @@ debug.keystore：签名文件路径</p>
 </code></pre>
 <p><img src="https://blog.hashdog.cn/post-images/1599279321712.png" alt="" loading="lazy"><br>
 保存后退出即可。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[mac系统常用操作]]></title>
-        <id>https://blog.hashdog.cn/post/mac-xi-tong-chang-yong-cao-zuo/</id>
-        <link href="https://blog.hashdog.cn/post/mac-xi-tong-chang-yong-cao-zuo/">
-        </link>
-        <updated>2020-09-05T04:01:34.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="命令行">命令行</h3>
-<p>1.删除目录下所有._开头文件<br>
-<code>find ./ -name &quot;._*&quot; -depth -exec rm {} \;</code></p>
-<p>2.删除目录下所有.DS_Store文件<br>
-<code>find ./ -name &quot;.DS_Store&quot; -depth -exec rm {} \;</code></p>
-<h3 id="其他操作">其他操作</h3>
-<ul>
-<li>**修改访达默认排列方式 **<br>
-<strong>快捷键</strong> <code>command+J</code><br>
-随便打开一个访达窗口，按下快捷键command+J弹出修改默认设置窗口<br>
-<img src="https://blog.hashdog.cn/post-images/1599278023055.png" alt="" loading="lazy"><br>
-修改分组方式和排列方式即可实现<br>
-😘 Enjoy~</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
